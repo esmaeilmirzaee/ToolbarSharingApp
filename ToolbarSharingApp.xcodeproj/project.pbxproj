@@ -53,14 +53,38 @@
 		8244AA5A23B1E866003E6C05 /* ToolbarSharingApp */ = {
 			isa = PBXGroup;
 			children = (
-				8244AA5B23B1E866003E6C05 /* AppDelegate.swift */,
-				8244AA5D23B1E866003E6C05 /* ViewController.swift */,
+				8244AA6D23B20461003E6C05 /* View */,
+				8244AA6C23B20451003E6C05 /* Controller */,
+				8244AA6B23B2043F003E6C05 /* Supporting Files */,
+			);
+			path = ToolbarSharingApp;
+			sourceTree = "<group>";
+		};
+		8244AA6B23B2043F003E6C05 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				8244AA5F23B1E869003E6C05 /* Assets.xcassets */,
-				8244AA6123B1E869003E6C05 /* Main.storyboard */,
 				8244AA6423B1E869003E6C05 /* Info.plist */,
 				8244AA6523B1E869003E6C05 /* ToolbarSharingApp.entitlements */,
 			);
-			path = ToolbarSharingApp;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8244AA6C23B20451003E6C05 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8244AA5D23B1E866003E6C05 /* ViewController.swift */,
+				8244AA5B23B1E866003E6C05 /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8244AA6D23B20461003E6C05 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8244AA6123B1E869003E6C05 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
