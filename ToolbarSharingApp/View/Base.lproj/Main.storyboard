@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ToolbarSharingApp" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -688,6 +689,33 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <toolbar key="toolbar" implicitIdentifier="448C7F74-3817-49B1-9184-D50AE7724274" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Mvy-3T-jmK">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="CyU-hg-Jwp"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="6Lf-9Y-UQU"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="x7U-dx-yYT"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="lSk-QB-Lme"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="eOe-cz-ZGI"/>
+                                <toolbarItem implicitItemIdentifier="45FA2DC1-0B52-417F-88D8-469D146EE74A" label="Share" paletteLabel="Share" image="NSShareTemplate" sizingBehavior="auto" id="XQG-0e-J3w">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="jqZ-zS-cge">
+                                        <rect key="frame" x="5" y="14" width="28" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSShareTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wcb-7p-LAa">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="share:" target="Oky-zY-oP4" id="bVR-lQ-f5N"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="eOe-cz-ZGI"/>
+                                <toolbarItem reference="XQG-0e-J3w"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -700,18 +728,52 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Share View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shareVC" id="XfG-lQ-9wD" customClass="ShareViewController" customModule="ToolbarSharingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="840" height="669"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jiB-j9-hnW">
+                                <rect key="frame" x="20" y="628" width="800" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ULX-Xb-Ips"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="zVq-mj-xGk">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hpu-29-zgd">
+                                <rect key="frame" x="20" y="20" width="800" height="600"/>
+                                <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="monitor" id="IVf-Py-U1J"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="jiB-j9-hnW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="B4k-Ex-4kb"/>
+                            <constraint firstAttribute="trailing" secondItem="jiB-j9-hnW" secondAttribute="trailing" constant="20" id="UdL-NA-wLx"/>
+                            <constraint firstAttribute="trailing" secondItem="hpu-29-zgd" secondAttribute="trailing" constant="20" id="cIV-gG-kxL"/>
+                            <constraint firstItem="hpu-29-zgd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="gZt-Eg-0pE"/>
+                            <constraint firstAttribute="bottom" secondItem="hpu-29-zgd" secondAttribute="bottom" constant="20" id="iCL-Xo-8Oc"/>
+                            <constraint firstItem="hpu-29-zgd" firstAttribute="top" secondItem="jiB-j9-hnW" secondAttribute="bottom" constant="8" id="m3g-xK-Bjq"/>
+                            <constraint firstItem="jiB-j9-hnW" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="wEK-p1-kVD"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="shareImageView" destination="hpu-29-zgd" id="mlO-g1-FpF"/>
+                        <outlet property="shareTextField" destination="jiB-j9-hnW" id="ibF-dw-xvy"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="843"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSShareTemplate" width="11" height="16"/>
+        <image name="monitor" width="800" height="600"/>
+    </resources>
 </document>
